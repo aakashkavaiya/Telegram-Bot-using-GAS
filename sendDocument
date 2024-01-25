@@ -1,0 +1,15 @@
+function sendDocument(chatid, document, caption) {
+
+  const url = 'https://api.telegram.org/bot' + BOT_TOKEN + "/sendDocument";
+  const payload = {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify({
+      chat_id: chatid,
+      document: document,
+      caption: caption,
+      parse_mode: "HTML"
+    })
+  }
+  UrlFetchApp.fetch(url, payload);
+}
